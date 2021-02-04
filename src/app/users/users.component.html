@@ -1,0 +1,21 @@
+<div class="outer-layer">
+    <h1>Responstable <span>2.0</span> by <span>jordyvanraaij</span></h1>
+
+    <table class="responstable">
+
+        <tr>
+            <th>Username</th>
+            <th>Email Address</th>
+            <th>Password</th>
+        </tr>
+
+        <tr *ngFor="let user of usersList">
+            <td>{{user.username}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.password}}</td>
+        </tr>
+
+        
+
+    </table>
+</div>
