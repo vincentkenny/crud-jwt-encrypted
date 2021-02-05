@@ -15,6 +15,8 @@ If you like this solution, you might also want to check out the 1.0 version:
     color: #024457;
     border-radius: 10px;
     border: 1px solid #167F92;
+    text-align: center;
+    
   }
   .responstable tr {
     border: 1px solid #D9E4E6;
@@ -31,7 +33,7 @@ If you like this solution, you might also want to check out the 1.0 version:
   }
   .responstable th:first-child {
     display: table-cell;
-    text-align: center;
+    
   }
   .responstable th:nth-child(2) {
     display: table-cell;
@@ -66,7 +68,6 @@ If you like this solution, you might also want to check out the 1.0 version:
     }
   }
   .responstable th, .responstable td {
-    text-align: left;
     margin: .5em 1em;
   }
   @media (min-width: 480px) {
@@ -90,6 +91,10 @@ If you like this solution, you might also want to check out the 1.0 version:
   }
   h1 span {
     color: #167F92;
+  }
+
+  .icon-edit{
+      margin-right: 20px;
   }
   
   .outer-layer{

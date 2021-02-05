@@ -37,7 +37,6 @@ export class SecurityComponent implements OnInit {
       "password" : this.password
     };
     let payLoad = this.crypto.encrypt(this.authRequest);
-    console.log("Encrypted : "+payLoad);
     let res = this.service.generateToken(payLoad);
     res.subscribe((data) => {
       let decryptedData = this.crypto.decrypt(data);

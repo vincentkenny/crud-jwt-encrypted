@@ -1,21 +1,42 @@
 <div class="outer-layer">
-    <h1>Responstable <span>2.0</span> by <span>jordyvanraaij</span></h1>
-
+    
+    <button (click)="openModal('register-modal')">Add New User</button>
     <table class="responstable">
 
         <tr>
             <th>Username</th>
             <th>Email Address</th>
             <th>Password</th>
+            <th>Details</th>
         </tr>
 
         <tr *ngFor="let user of usersList">
             <td>{{user.username}}</td>
             <td>{{user.email}}</td>
             <td>{{user.password}}</td>
+            <td>
+                <a class="icon-edit" (click)="populateForm(user.id)"><fa-icon [icon]="faEdit"></fa-icon></a>
+                <a  (click)="deleteUser(user.id)"><fa-icon [icon]="faTrash"></fa-icon></a>
+            </td>
         </tr>
 
         
 
     </table>
 </div>
+<user-modal id="register-modal">
+    <h1>Register A New User</h1>
+    <p>Enter Username: <input type="text" [(ngModel)]="user.username" /></p>
+    <p>Enter Email: <input type="text" [(ngModel)]="user.email" /></p>
+    <p>Enter Password: <input type="password" [(ngModel)]="user.password" /></p>
+    <button (click)="closeModal('register-modal');">Close</button>
+    <button (click)="registerUser()">Submit</button>
+</user-modal>
+<user-modal id="edit-modal">
+    <h1>Register A New User</h1>
+    <p>Enter Username: <input type="text" [(ngModel)]="user.username" /></p>
+    <p>Enter Email: <input type="text" [(ngModel)]="user.email" /></p>
+    <p>Enter Password: <input type="password" [(ngModel)]="user.password" /></p>
+    <button (click)="closeModal('edit-modal');">Close</button>
+    <button (click)="updateUser()">Submit</button>
+</user-modal>
