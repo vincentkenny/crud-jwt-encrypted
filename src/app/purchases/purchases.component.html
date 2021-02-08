@@ -1,0 +1,46 @@
+<div class="outer-layer">
+    
+    <button (click)="openModal('register-modal')">Add New Purchase</button>
+    <table class="responstable">
+
+        <tr>
+            <th>Number</th>
+            <th>Product ID</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+            <th>User ID</th>
+            <th>Details</th>
+        </tr>
+
+        <tr *ngFor="let purchase of purchasesList; let indexOfElement = index;">
+            <td>#{{indexOfElement+1}}</td>
+            <td>{{purchase.productId}}</td>
+            <td>{{purchase.quantity}}</td>
+            <td>{{purchase.totalPrice}}</td>
+            <td>{{purchase.userId}}</td>
+            <td>
+                <a class="icon-edit" (click)="populateForm(purchase.id)"><fa-icon [icon]="faEdit"></fa-icon></a>
+                <a  (click)="deletePurchase(purchase.id)"><fa-icon [icon]="faTrash"></fa-icon></a>
+            </td>
+        </tr>
+
+        
+
+    </table>
+</div>
+<user-modal id="register-modal">
+    <h1>Register A New Purchase</h1>
+    <p>Enter Product ID: <input type="text" [(ngModel)]="purchase.productId" /></p>
+    <p>Enter Purchase Quantity: <input type="number" [(ngModel)]="purchase.quantity" /></p>
+    <p>Enter User ID: <input type="number" [(ngModel)]="purchase.userId" /></p>
+    <button (click)="closeModal('register-modal');">Close</button>
+    <button (click)="registerPurchase()">Submit</button>
+</user-modal>
+<user-modal id="edit-modal">
+    <h1>Edit A Purchase</h1>
+    <p>Enter Product ID: <input type="text" [(ngModel)]="purchase.productId" /></p>
+    <p>Enter Purchase Quantity: <input type="number" [(ngModel)]="purchase.quantity" /></p>
+    <p>Enter User ID: <input type="number" [(ngModel)]="purchase.userId" /></p>
+    <button (click)="closeModal('edit-modal');">Close</button>
+    <button (click)="updatePurchase()">Submit</button>
+</user-modal>

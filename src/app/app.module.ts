@@ -10,6 +10,8 @@ import { SecurityComponent } from './security/security.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UsersComponent } from './users/users.component';
 import { UserModalComponent } from './modals/user-modal/user-modal.component';
+import { ProductsComponent } from './products/products.component';
+import { PurchasesComponent } from './purchases/purchases.component';
 
 
 @NgModule({
@@ -18,7 +20,9 @@ import { UserModalComponent } from './modals/user-modal/user-modal.component';
     SecurityComponent,
     NavbarComponent,
     UsersComponent,
-    UserModalComponent
+    UserModalComponent,
+    ProductsComponent,
+    PurchasesComponent
   ],
   imports: [
     BrowserModule,

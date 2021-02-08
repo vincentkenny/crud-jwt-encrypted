@@ -1,0 +1,44 @@
+<div class="outer-layer">
+    
+    <button (click)="openModal('register-modal')">Add New Product</button>
+    <table class="responstable">
+
+        <tr>
+            <th>Number</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Retail Price</th>
+            <th>Details</th>
+        </tr>
+
+        <tr *ngFor="let product of productsList; let indexOfElement = index;">
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.quantity}}</td>
+            <td>{{product.price}}</td>
+            <td>
+                <a class="icon-edit" (click)="populateForm(product.id)"><fa-icon [icon]="faEdit"></fa-icon></a>
+                <a  (click)="deleteProduct(product.id)"><fa-icon [icon]="faTrash"></fa-icon></a>
+            </td>
+        </tr>
+
+        
+
+    </table>
+</div>
+<user-modal id="register-modal">
+    <h1>Register A New Product</h1>
+    <p>Enter Product Name: <input type="text" [(ngModel)]="product.name" /></p>
+    <p>Enter Initial Quantity: <input type="number" [(ngModel)]="product.quantity" /></p>
+    <p>Enter Retail Price: <input type="number" [(ngModel)]="product.price" /></p>
+    <button (click)="closeModal('register-modal');">Close</button>
+    <button (click)="registerProduct()">Submit</button>
+</user-modal>
+<user-modal id="edit-modal">
+    <h1>Edit A Product</h1>
+    <p>Enter Product Name: <input type="text" [(ngModel)]="product.name" /></p>
+    <p>Enter Current Quantity: <input type="number" [(ngModel)]="product.quantity" /></p>
+    <p>Enter Retail Price: <input type="number" [(ngModel)]="product.price" /></p>
+    <button (click)="closeModal('edit-modal');">Close</button>
+    <button (click)="updateProduct()">Submit</button>
+</user-modal>
